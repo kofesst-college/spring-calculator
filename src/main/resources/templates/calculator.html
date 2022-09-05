@@ -6,6 +6,7 @@
 </head>
 <body>
 <form method="post" action="/calculator">
+    <h4>POST</h4>
     <label for="input__first_number">Первое число:</label>
     <br>
     <input id="input__first_number" name="first" type="number"/>
@@ -19,6 +20,31 @@
     <label for="input__sign">Действие:</label>
     <br>
     <select id="input__sign" name="sign">
+        <option value="+" selected>Сложение</option>
+        <option value="-">Вычитание</option>
+        <option value="*">Умножение</option>
+        <option value="/">Деление</option>
+    </select>
+    <br>
+    <br>
+    <input type="submit" value="Результат"/>
+</form>
+<br>
+<form method="get" action="/calculator">
+    <h6>GET</h6>
+    <label for="input__first_number">Первое число:</label>
+    <br>
+    <input id="input__first_number_1" name="first" type="number"/>
+    <br>
+    <br>
+    <label for="input__second_number">Второе число:</label>
+    <br>
+    <input id="input__second_number_1" name="second" type="number"/>
+    <br>
+    <br>
+    <label for="input__sign">Действие:</label>
+    <br>
+    <select id="input__sign_1" name="sign">
         <option value="+" selected>Сложение</option>
         <option value="-">Вычитание</option>
         <option value="*">Умножение</option>

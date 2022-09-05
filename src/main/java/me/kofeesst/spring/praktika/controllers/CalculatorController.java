@@ -9,7 +9,38 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class CalculatorController {
     @GetMapping("/calculator")
-    public String getCalculator() {
+    public String getCalculator(
+            @RequestParam(value = "first", required = false) Integer first,
+            @RequestParam(value = "second", required = false) Integer second,
+            @RequestParam(value = "sign", required = false) Character sign,
+            Model model
+    ) {
+        if (first != null && second != null && sign != null) {
+            Integer result = null;
+            switch (sign) {
+                case '+':
+                    result = first + second;
+                    break;
+                case '-':
+                    result = first - second;
+                    break;
+                case '*':
+                    result = first * second;
+                    break;
+                case '/':
+                    if (second == 0) {
+                        model.addAttribute(
+                                "error",
+                                "Не удалось поделить на ноль"
+                        );
+                    } else {
+                        result = first / second;
+                    }
+                    break;
+            }
+            model.addAttribute("result", result);
+        }
+
         return "calculator";
     }
 
